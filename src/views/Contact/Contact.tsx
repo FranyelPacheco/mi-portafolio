@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Mail, Loader2, CheckCircle2 } from "lucide-react";
-import emailjs from "@emailjs/browser"; // 1. Importamos la librería
+import emailjs from "@emailjs/browser";
+import confetti from "canvas-confetti";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -38,7 +39,13 @@ const Contact = () => {
         setEmail("");
         setMessage("");
 
-        // Ocultar el mensaje de éxito después de 5 segundos
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ["#38bdf8", "#34d399", "#ffffff"],
+        });
+
         setTimeout(() => setIsSuccess(false), 5000);
       })
       .catch((error) => {
