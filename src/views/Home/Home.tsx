@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Mail } from "lucide-react";
 import Skills from "../../components/layout/Skills";
+import About from "../../components/common/About";
 import avatar from "../../assets/avatar.jpg";
 
 const Home = () => {
@@ -64,7 +65,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 2. Insertamos la sección de Habilidades */}
+      {/* 2. Insertamos la sección de Sobre Mí */}
+      <About />
+
+      {/* 3. Insertamos la sección de Habilidades */}
       <Skills />
     </>
   );
