@@ -1,4 +1,4 @@
-import { ComponentType } from 'react';
+import type { ComponentType } from 'react';
 
 // Contrato que define la estructura obligatoria de cada ruta en la app
 export interface RouteConfig {
