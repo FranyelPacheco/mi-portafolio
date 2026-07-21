@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, Download, ExternalLink } from "lucide-react";
 import Skills from "../../components/layout/Skills";
 import About from "../../components/common/About";
 import avatar from "../../assets/avatar.jpg";
@@ -52,6 +52,25 @@ const Home = () => {
                 <Mail className="w-4 h-4 text-slate-400" />
                 Contáctame
               </button>
+
+              <a
+                href="/CV.pdf"
+                download
+                className="flex items-center gap-2 px-6 py-3 border border-slate-700 hover:border-slate-500 text-slate-300 font-medium rounded-lg transition-all hover:bg-slate-800/40"
+              >
+                <Download className="w-4 h-4 text-slate-400" />
+                Descargar CV
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/franyel-franyel/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 border border-slate-700 hover:border-slate-500 text-slate-300 font-medium rounded-lg transition-all hover:bg-slate-800/40"
+              >
+                <ExternalLink className="w-4 h-4 text-slate-400" />
+                LinkedIn
+              </a>
             </div>
           </div>
 
