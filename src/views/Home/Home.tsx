@@ -13,7 +13,7 @@ const Home = () => {
         <div className="max-w-4xl mx-auto text-center md:text-left flex flex-col md:flex-row items-center gap-12">
           
           {/* Bloque de Texto */}
-          <div className="flex-1 space-y-6">
+          <div className="flex-1 space-y-6 animate-fade-in-up">
             <p className="text-sky-400 font-mono text-sm tracking-widest uppercase">
               Disponible para trabajar remoto
             </p>
@@ -75,7 +75,7 @@ const Home = () => {
           </div>
 
           {/* Avatar */}
-          <div className="w-48 h-48 sm:w-64 sm:h-64 bg-slate-800 border-2 border-slate-700 rounded-2xl flex items-center justify-center shadow-2xl relative overflow-hidden group">
+          <div className="w-48 h-48 sm:w-64 sm:h-64 bg-slate-800 border-2 border-slate-700 rounded-2xl flex items-center justify-center shadow-2xl relative overflow-hidden group animate-fade-in-up animation-delay-200">
             <span className="text-slate-500 font-mono text-xs group-hover:scale-110 transition-transform duration-300">
               <img src={avatar} alt="Avatar de Franyel" className="w-full h-full object-cover rounded-2xl" />
             </span>

@@ -31,7 +31,7 @@ const Skills = () => {
       <div className="max-w-6xl mx-auto space-y-10">
         
         {/* Título de la sección */}
-        <div className="text-center space-y-3">
+        <div className="text-center space-y-3 animate-fade-in-up">
           <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
             Tech <span className="text-sky-400">Stack</span> & Competencias
           </h3>
@@ -42,10 +42,12 @@ const Skills = () => {
 
         {/* Grid de Categorías */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {skillCategories.map((category) => (
+          {skillCategories.map((category, index) => (
             <div 
               key={category.title}
-              className="bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-slate-700 transition-colors"
+              className={`bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-slate-700 transition-colors animate-fade-in-up ${
+                index === 0 ? "animation-delay-200" : index === 1 ? "animation-delay-400" : index === 2 ? "animation-delay-600" : ""
+              }`}
             >
               {/* Encabezado de la Tarjeta */}
               <div className="flex items-center gap-3">

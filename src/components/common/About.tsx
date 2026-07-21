@@ -4,14 +4,14 @@ const About = () => {
   return (
     <section className="py-16 px-6 bg-slate-900 border-t border-slate-800">
       <div className="max-w-6xl mx-auto space-y-10">
-        <div className="text-center space-y-3">
+        <div className="text-center space-y-3 animate-fade-in-up">
           <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
             Sobre <span className="text-sky-400">Mí</span>
           </h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-slate-700 transition-colors">
+          <div className="bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-slate-700 transition-colors animate-fade-in-up animation-delay-200">
             <div className="flex items-center gap-3">
               <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800">
                 <Rocket className="w-5 h-5 text-sky-400" />
@@ -26,7 +26,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-slate-700 transition-colors">
+          <div className="bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-slate-700 transition-colors animate-fade-in-up animation-delay-400">
             <div className="flex items-center gap-3">
               <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800">
                 <Target className="w-5 h-5 text-emerald-400" />
