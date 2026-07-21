@@ -13,4 +13,4 @@
 
 ## 📋 Pendiente (Backlog)
 - [x] Crear página 404 (`NotFound.tsx`).
-- [ ] Desplegar la aplicación en Vercel y subir el código a GitHub.
+- [x] Desplegar la aplicación en Vercel y subir el código a GitHub.
