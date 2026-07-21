@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Mail } from "lucide-react";
 import Skills from "../../components/layout/Skills";
+import avatar from "../../assets/avatar.jpg";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ const Home = () => {
           {/* Avatar */}
           <div className="w-48 h-48 sm:w-64 sm:h-64 bg-slate-800 border-2 border-slate-700 rounded-2xl flex items-center justify-center shadow-2xl relative overflow-hidden group">
             <span className="text-slate-500 font-mono text-xs group-hover:scale-110 transition-transform duration-300">
-              <img src="src\assets\avatar.jpg" alt="Avatar de Franyel" className="w-full h-full object-cover rounded-2xl" />
+              <img src={avatar} alt="Avatar de Franyel" className="w-full h-full object-cover rounded-2xl" />
             </span>
           </div>
 
