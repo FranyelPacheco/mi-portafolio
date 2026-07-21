@@ -10,10 +10,13 @@ Portafolio web personal enfocado en destacar competencias para vacantes remotas 
 - **Iconos:** `lucide-react`
 - **Enrutado:** `react-router-dom`
 - **Formularios:** React `useState` + `@emailjs/browser`
+- **Animaciones:** CSS Keyframes + `canvas-confetti`
 
 ## 🏗️ Arquitectura de Carpetas
-- `src/components/`: Componentes reutilizables (ej. `Navbar.tsx`, `Skills.tsx`).
-- `src/views/` (o `pages/`): Vistas principales del enrutador (`Home.tsx`, `Projects.tsx`, `Contact.tsx`).
+- `src/components/common/`: Componentes reutilizables (`ProjectCard.tsx`, `About.tsx`, `HyperText.tsx`, `TypingAnimation.tsx`, `ShimmerButton.tsx`).
+- `src/components/layout/`: Componentes de layout (`Navbar.tsx`, `Skills.tsx`).
+- `src/data/`: Datos estáticos (`projects.ts`).
+- `src/views/`: Vistas principales del enrutador (`Home.tsx`, `Projects.tsx`, `Contact.tsx`, `NotFound.tsx`).
 - `src/types/`: Contratos e interfaces estricta de TypeScript (`project.ts`, `skill.ts`, `navigation.ts`).
 - `src/routes/`: Configuración centralizada de rutas.
 
