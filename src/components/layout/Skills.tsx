@@ -16,7 +16,7 @@ const skillCategories: (SkillCategory & { icon: React.ReactNode })[] = [
   {
     title: "Backend & Bases de Datos",
     icon: <Database className="w-5 h-5 text-indigo-400" />,
-    skills: ["MySQL", "MongoDB", "Node.js", "REST APIs"],
+    skills: ["MySQL", "MongoDB", "Node.js", "PHP", "REST APIs"],
   },
   {
     title: "Herramientas & Entorno",
