@@ -2,6 +2,8 @@
 
 Portafolio web personal para destacar mis competencias como **Desarrollador Frontend** enfocado en vacantes remotas (React / React Native / TypeScript).
 
+**[Ver Portafolio en Vivo →](https://mi-portafolio-eta.vercel.app/)**
+
 ---
 
 ## Stack Tecnológico
@@ -12,59 +14,63 @@ Portafolio web personal para destacar mis competencias como **Desarrollador Fron
 - **Iconos:** lucide-react
 - **Enrutado:** react-router-dom v7
 - **Formularios:** EmailJS
+- **Animaciones:** CSS Keyframes + canvas-confetti
 
 ## Características
 
 - Diseño dark mode responsive (mobile-first)
-- Hero section con llamada a la acción
-- Sección de Tech Stack organizada por categorías
-- Vista de Proyectos con filtrado por tecnología
-- Formulario de contacto con validaciones en tiempo real e integración EmailJS
-- Página 404 personalizada
+- Hero section con **HyperText** (efecto scramble al hover), **TypingAnimation** y **ShimmerButton**
+- Glow orb de fondo y avatar con borde animado
+- Sección "Sobre mí" con stats de proyectos y tecnologías
+- Tech Stack organizado por categorías con **iconos color-coded** por tecnología
+- Vista de Proyectos con **filtrado por tecnología**
+- Formulario de contacto con validaciones en tiempo real, integración EmailJS y **confeti al enviar**
+- Navbar con indicador de ruta activa
+- Página 404 minimalista
+- Smooth scroll entre secciones
+- SEO optimizado con meta tags y Open Graph
+
+## Proyectos Destacados
+
+| Proyecto | Tecnologías | Link |
+|----------|-------------|------|
+| Impostor Royale | React Native, TypeScript | [Play Store](https://play.google.com/store/apps/details?id=com.impostor.royale) |
+| Óptica Nur | HTML, CSS, JavaScript | [Demo](https://optica-nur.pages.dev/) |
+| SP Perfect Color | PHP, JavaScript, CSS | [GitHub](https://github.com/FranyelPacheco/SP-Perfect-Color) |
+| DolarAhora | HTML, JavaScript, CSS | [GitHub](https://github.com/FranyelPacheco/DolarAhora) |
+| Mi Portafolio | React, TypeScript, Tailwind | [GitHub](https://github.com/FranyelPacheco/mi-portafolio) |
 
 ## Estructura del Proyecto
 
 ```
 src/
 ├── components/
-│   ├── common/          # Componentes reutilizables (ProjectCard)
-│   └── layout/          # Componentes de layout (Navbar, Skills)
-├── data/                # Datos estáticos (projects.ts)
-├── hooks/               # Custom hooks
-├── routes/              # Configuración centralizada de rutas
-├── types/               # Contratos e interfaces TypeScript
-└── views/               # Vistas principales del enrutador
-    ├── Contact/
-    ├── Home/
-    ├── NotFound/
-    └── Projects/
+│   ├── common/          # Reutilizables (ProjectCard, About, HyperText, TypingAnimation, ShimmerButton)
+│   └── layout/          # Layout (Navbar, Skills)
+├── data/                # Datos estáticos (projects.ts, techIcons.ts)
+├── routes/              # Configuración de rutas
+├── types/               # Interfaces TypeScript (project, skill, navigation)
+└── views/               # Vistas del router (Home, Projects, Contact, NotFound)
 ```
 
 ## Instalación y Ejecución
 
 ```bash
-# Clonar el repositorio
 git clone https://github.com/FranyelPacheco/mi-portafolio.git
-
-# Entrar al directorio
 cd mi-portafolio
-
-# Instalar dependencias
 npm install
-
-# Ejecutar en modo desarrollo
 npm run dev
 ```
 
-## Scripts Disponibles
+## Scripts
 
 | Comando | Descripción |
 |---------|-------------|
 | `npm run dev` | Servidor de desarrollo con HMR |
 | `npm run build` | Build de producción (TypeScript + Vite) |
-| `npm run preview` | Vista previa del build de producción |
-| `npm run lint` | Análisis de código con ESLint |
+| `npm run preview` | Vista previa del build |
+| `npm run lint` | Análisis con ESLint |
 
 ---
 
-**Franyel Pacheco** · Desarrollador Frontend React / TypeScript
+**Franyel Pacheco** · Desarrollador Frontend React / TypeScript · [LinkedIn](https://www.linkedin.com/in/franyel-franyel/)
