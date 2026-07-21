@@ -1,27 +1,27 @@
 import type { SkillCategory } from "../../types/skill";
 import { Code, Smartphone, Database, Wrench } from "lucide-react";
+import { getTechIcon } from "../../data/techIcons";
 
-// Categorías organizadas de tu perfil técnico
 const skillCategories: (SkillCategory & { icon: React.ReactNode })[] = [
   {
     title: "Desarrollo Frontend",
     icon: <Code className="w-5 h-5 text-sky-400" />,
-    skills: ["React", "TypeScript", "Tailwind CSS", "Vite", "HTML5/CSS3", "JavaScript (ES6+)"],
+    skills: ["React", "TypeScript", "Tailwind CSS", "Vite", "HTML", "CSS", "JavaScript"],
   },
   {
     title: "Desarrollo Móvil",
     icon: <Smartphone className="w-5 h-5 text-emerald-400" />,
-    skills: ["React Native", "Expo", "Cross-Platform UI"],
+    skills: ["React Native", "Expo"],
   },
   {
     title: "Backend & Bases de Datos",
     icon: <Database className="w-5 h-5 text-indigo-400" />,
-    skills: ["MySQL", "MongoDB", "Node.js", "PHP", "REST APIs"],
+    skills: ["MySQL", "MongoDB", "Node.js", "PHP"],
   },
   {
     title: "Herramientas & Entorno",
     icon: <Wrench className="w-5 h-5 text-amber-400" />,
-    skills: ["Git", "GitHub", "VS Code", "npm/pnpm"],
+    skills: ["Git", "GitHub"],
   },
 ];
 
@@ -45,7 +45,7 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <div 
               key={category.title}
-              className={`bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-slate-700 transition-colors animate-fade-in-up ${
+              className={`bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-sky-500/20 hover:shadow-lg hover:shadow-sky-500/5 transition-all animate-fade-in-up ${
                 index === 0 ? "animation-delay-200" : index === 1 ? "animation-delay-400" : index === 2 ? "animation-delay-600" : ""
               }`}
             >
@@ -59,16 +59,20 @@ const Skills = () => {
                 </h4>
               </div>
 
-              {/* Lista de Badges */}
+              {/* Lista de Badges con iconos */}
               <div className="flex flex-wrap gap-2 pt-2">
-                {category.skills.map((skill) => (
-                  <span 
-                    key={skill}
-                    className="px-3 py-1.5 text-xs font-mono font-medium rounded-lg bg-slate-900/80 text-slate-300 border border-slate-800 hover:border-sky-500/50 hover:text-sky-400 transition-colors"
-                  >
-                    {skill}
-                  </span>
-                ))}
+                {category.skills.map((skill) => {
+                  const icon = getTechIcon(skill);
+                  return (
+                    <span 
+                      key={skill}
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-lg border transition-colors hover:brightness-125 ${icon.bg}`}
+                    >
+                      <span className={`font-bold ${icon.color}`}>{icon.label}</span>
+                      <span className="text-slate-300">{skill}</span>
+                    </span>
+                  );
+                })}
               </div>
             </div>
           ))}

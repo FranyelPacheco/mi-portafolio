@@ -1,4 +1,5 @@
 import type { ProjectConfig } from "../../types/project";
+import { getTechIcon } from "../../data/techIcons";
 
 interface ProjectCardProps {
   project: ProjectConfig;
@@ -6,7 +7,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <article className="flex flex-col bg-slate-800/50 border border-slate-800 rounded-2xl p-6 hover:border-slate-700/80 transition-all duration-300 hover:-translate-y-1 shadow-xl flex-1 justify-between group">
+    <article className="flex flex-col bg-slate-800/50 border border-slate-800 rounded-2xl p-6 hover:border-sky-500/30 hover:shadow-lg hover:shadow-sky-500/5 transition-all duration-300 hover:-translate-y-1 flex-1 justify-between group">
       <div className="space-y-4">
         <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
           {project.title}
@@ -17,14 +18,18 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </p>
 
         <div className="flex flex-wrap gap-2 pt-2">
-          {project.technologies.map((tech) => (
-            <span
-              key={tech}
-              className="px-2.5 py-1 text-xs font-mono font-medium rounded-md bg-slate-900 text-slate-400 border border-slate-800"
-            >
-              {tech}
-            </span>
-          ))}
+          {project.technologies.map((tech) => {
+            const icon = getTechIcon(tech);
+            return (
+              <span
+                key={tech}
+                className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-medium rounded-md border ${icon.bg}`}
+              >
+                <span className={`font-bold ${icon.color}`}>{icon.label}</span>
+                <span className="text-slate-400">{tech}</span>
+              </span>
+            );
+          })}
         </div>
       </div>
 

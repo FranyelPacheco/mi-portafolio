@@ -12,8 +12,11 @@ const Home = () => {
 
   return (
     <>
-      <section className="min-h-[calc(100vh-64px)] flex items-center justify-center px-6">
-        <div className="max-w-4xl mx-auto text-center md:text-left flex flex-col md:flex-row items-center gap-12">
+      <section className="relative min-h-[calc(100vh-64px)] flex items-center justify-center px-6 overflow-hidden">
+        {/* Glow orb de fondo */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="relative max-w-4xl mx-auto text-center md:text-left flex flex-col md:flex-row items-center gap-12">
           
           {/* Bloque de Texto */}
           <div className="flex-1 space-y-6 animate-fade-in-up">
@@ -76,11 +79,12 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Avatar */}
-          <div className="w-48 h-48 sm:w-64 sm:h-64 bg-slate-800 border-2 border-slate-700 rounded-2xl flex items-center justify-center shadow-2xl relative overflow-hidden group animate-fade-in-up animation-delay-200">
-            <span className="text-slate-500 font-mono text-xs group-hover:scale-110 transition-transform duration-300">
-              <img src={avatar} alt="Avatar de Franyel" className="w-full h-full object-cover rounded-2xl" />
-            </span>
+          {/* Avatar con glow */}
+          <div className="relative w-48 h-48 sm:w-64 sm:h-64 animate-fade-in-up animation-delay-200">
+            <div className="absolute inset-0 bg-sky-500/20 rounded-2xl blur-xl animate-pulse" />
+            <div className="relative w-full h-full bg-slate-800 border-2 border-sky-500/30 rounded-2xl flex items-center justify-center shadow-2xl shadow-sky-500/10 overflow-hidden group">
+              <img src={avatar} alt="Avatar de Franyel" className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500" />
+            </div>
           </div>
 
         </div>

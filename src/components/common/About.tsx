@@ -1,4 +1,10 @@
-import { Target, Rocket } from "lucide-react";
+import { Target, Rocket, FolderCode, Wrench } from "lucide-react";
+
+const stats = [
+  { value: "5+", label: "Proyectos", icon: FolderCode },
+  { value: "6+", label: "Tecnologías", icon: Wrench },
+  { value: "100%", label: "Remoto", icon: Target },
+];
 
 const About = () => {
   return (
@@ -10,8 +16,26 @@ const About = () => {
           </h3>
         </div>
 
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="text-center space-y-2 p-4 rounded-xl bg-slate-800/30 border border-slate-800 hover:border-sky-500/30 transition-colors"
+            >
+              <stat.icon className="w-5 h-5 text-sky-400 mx-auto" />
+              <p className="text-2xl sm:text-3xl font-extrabold text-white">
+                {stat.value}
+              </p>
+              <p className="text-xs text-slate-500 font-mono uppercase tracking-wider">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-slate-700 transition-colors animate-fade-in-up animation-delay-200">
+          <div className="bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-sky-500/20 hover:shadow-lg hover:shadow-sky-500/5 transition-all animate-fade-in-up animation-delay-200">
             <div className="flex items-center gap-3">
               <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800">
                 <Rocket className="w-5 h-5 text-sky-400" />
@@ -26,7 +50,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-slate-700 transition-colors animate-fade-in-up animation-delay-400">
+          <div className="bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-sky-500/20 hover:shadow-lg hover:shadow-sky-500/5 transition-all animate-fade-in-up animation-delay-400">
             <div className="flex items-center gap-3">
               <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800">
                 <Target className="w-5 h-5 text-emerald-400" />
