@@ -7,7 +7,6 @@ export const projects: ProjectConfig[] = [
     description:
       "Videojuego móvil multijugador desarrollado bajo la entidad FP Games Studio, implementando lógicas complejas de estado, sincronización en tiempo real y renderizado eficiente.",
     technologies: ["React Native", "TypeScript", "JavaScript"],
-    githubUrl: "https://github.com/FranyelPacheco/Impostor-Royale",
     liveUrl:
       "https://play.google.com/store/apps/details?id=com.impostor.royale",
   },
