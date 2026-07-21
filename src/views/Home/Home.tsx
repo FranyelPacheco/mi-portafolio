@@ -1,0 +1,72 @@
+import { useNavigate } from "react-router-dom";
+import { ArrowRight, Mail } from "lucide-react";
+import Skills from "../../components/layout/Skills";
+
+const Home = () => {
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <section className="min-h-[calc(100vh-64px)] flex items-center justify-center px-6">
+        <div className="max-w-4xl mx-auto text-center md:text-left flex flex-col md:flex-row items-center gap-12">
+          
+          {/* Bloque de Texto */}
+          <div className="flex-1 space-y-6">
+            <p className="text-sky-400 font-mono text-sm tracking-widest uppercase">
+              Disponible para trabajar remoto
+            </p>
+            
+            <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
+              Hola, soy{" "}
+              <span className="bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent">
+                Franyel
+              </span>
+            </h1>
+            
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-400">
+              Desarrollador Frontend React / TypeScript
+            </h2>
+            
+            <p className="text-slate-400 text-lg max-w-xl leading-relaxed">
+              Me apasiona construir aplicaciones web y móviles optimizadas, limpias 
+              y escalables. Enfocado en escribir código sólido y dominar la 
+              arquitectura de software de verdad.
+            </p>
+
+            {/* Botones de Acción con Íconos */}
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
+              <button 
+                onClick={() => navigate("/projects")}
+                className="group flex items-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-600 text-slate-900 font-semibold rounded-lg shadow-lg shadow-sky-500/20 transition-all hover:-translate-y-0.5"
+              >
+                Ver Proyectos
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </button>
+              
+              <button 
+                onClick={() => navigate("/contact")}
+                className="flex items-center gap-2 px-6 py-3 border border-slate-700 hover:border-slate-500 text-slate-300 font-medium rounded-lg transition-all hover:bg-slate-800/40"
+              >
+                <Mail className="w-4 h-4 text-slate-400" />
+                Contáctame
+              </button>
+            </div>
+          </div>
+
+          {/* Avatar */}
+          <div className="w-48 h-48 sm:w-64 sm:h-64 bg-slate-800 border-2 border-slate-700 rounded-2xl flex items-center justify-center shadow-2xl relative overflow-hidden group">
+            <span className="text-slate-500 font-mono text-xs group-hover:scale-110 transition-transform duration-300">
+              <img src="src\assets\avatar.jpg" alt="Avatar de Franyel" className="w-full h-full object-cover rounded-2xl" />
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 2. Insertamos la sección de Habilidades */}
+      <Skills />
+    </>
+  );
+};
+
+export default Home;
