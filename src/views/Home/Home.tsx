@@ -2,6 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { ArrowRight, Mail, Download, ExternalLink } from "lucide-react";
 import Skills from "../../components/layout/Skills";
 import About from "../../components/common/About";
+import HyperText from "../../components/common/HyperText";
+import TypingAnimation from "../../components/common/TypingAnimation";
+import ShimmerButton from "../../components/common/ShimmerButton";
 import avatar from "../../assets/avatar.jpg";
 
 const Home = () => {
@@ -20,13 +23,15 @@ const Home = () => {
             
             <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
               Hola, soy{" "}
-              <span className="bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent">
+              <HyperText className="bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent">
                 Franyel
-              </span>
+              </HyperText>
             </h1>
             
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-400">
-              Desarrollador Frontend React / TypeScript
+              <TypingAnimation>
+                Desarrollador Frontend React / TypeScript
+              </TypingAnimation>
             </h2>
             
             <p className="text-slate-400 text-lg max-w-xl leading-relaxed">
@@ -37,13 +42,10 @@ const Home = () => {
 
             {/* Botones de Acción con Íconos */}
             <div className="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
-              <button 
-                onClick={() => navigate("/projects")}
-                className="group flex items-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-600 text-slate-900 font-semibold rounded-lg shadow-lg shadow-sky-500/20 transition-all hover:-translate-y-0.5"
-              >
+              <ShimmerButton onClick={() => navigate("/projects")}>
                 Ver Proyectos
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </button>
+              </ShimmerButton>
               
               <button 
                 onClick={() => navigate("/contact")}
