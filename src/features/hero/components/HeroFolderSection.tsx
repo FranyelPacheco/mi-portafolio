@@ -72,8 +72,8 @@ export const HeroFolderSection = () => {
         </dl>
       </div>
 
-      <div className="animate-fade-in-up stagger-3 w-full pt-24 lg:pt-16 pb-4 flex justify-center items-center z-10">
-        <Suspense fallback={<div className="h-[274px] w-[314px] max-w-full" aria-hidden="true" />}>
+      <div className="animate-fade-in-up stagger-3 w-full pt-36 lg:pt-40 pb-4 flex justify-center items-center z-10">
+        <Suspense fallback={<div className="h-[330px] w-[426px] max-w-full" aria-hidden="true" />}>
           <HeroFolder />
         </Suspense>
       </div>

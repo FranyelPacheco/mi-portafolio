@@ -126,7 +126,25 @@ export default async function handler(req: any, res: any) {
     // Lead scoring automático
     const leadScore = calculateLeadScore({ budget, decisionMaker, startDate });
 
-    const apiKey = process.env.RESEND_API_KEY;
+    let apiKey = process.env.RESEND_API_KEY;
+
+    // Fallback para entorno local si no se inyectó en process.env
+    if (!apiKey) {
+      try {
+        const fs = await import("fs");
+        const path = await import("path");
+        const envPath = path.resolve(process.cwd(), ".env");
+        if (fs.existsSync(envPath)) {
+          const content = fs.readFileSync(envPath, "utf-8");
+          const match = content.match(/RESEND_API_KEY=(.*)/);
+          if (match && match[1]) {
+            apiKey = match[1].trim();
+          }
+        }
+      } catch {
+        // Ignorar si no está en entorno Node con fs
+      }
+    }
 
     // Si aún no se configuró RESEND_API_KEY en local o Vercel
     if (!apiKey) {
@@ -137,7 +155,7 @@ export default async function handler(req: any, res: any) {
         success: true,
         simulated: true,
         leadScore,
-        message: "Mensaje procesado en modo simulación local.",
+        message: "Mensaje procesado en modo simulación local (sin API Key).",
       });
     }
 
@@ -252,16 +270,25 @@ Parámetros del proyecto:
 Score Interno: ${leadScore.score}/10 | Prioridad: ${leadScore.priority} | Tag: ${leadScore.tag}
     `.trim();
 
-    const response = await resend.emails.send({
+    const recipient = process.env.RECIPIENT_EMAIL || "franyel.pachecocv@gmail.com";
+
+    const { data: sendData, error: sendError } = await resend.emails.send({
       from: "Portafolio Franyel <onboarding@resend.dev>",
-      to: ["franyel.pachecocv@gmail.com"],
+      to: [recipient],
       reply_to: email,
       subject: `[${leadScore.category}] Lead: ${name}`,
       html: htmlEmail,
       text: textEmail,
     });
 
-    return res.status(200).json({ success: true, data: response, leadScore });
+    if (sendError) {
+      console.error("[Error Resend API]:", sendError);
+      return res.status(400).json({
+        error: sendError.message || "Error al enviar el correo a través de Resend.",
+      });
+    }
+
+    return res.status(200).json({ success: true, data: sendData, leadScore });
   } catch (err: any) {
     console.error("[Error en handler /api/send]:", err);
     return res.status(500).json({
