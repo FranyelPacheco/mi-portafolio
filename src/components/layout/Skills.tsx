@@ -11,7 +11,7 @@ const skillCategories: (SkillCategory & { code: string; summary: string })[] = [
   {
     code: "02 // MÓVIL",
     title: "Aplicaciones Nativas",
-    summary: "Desarrollo móvil para Android con estado en tiempo real.",
+    summary: "Desarrollo móvil para Android.",
     skills: ["React Native", "Expo"],
   },
   {

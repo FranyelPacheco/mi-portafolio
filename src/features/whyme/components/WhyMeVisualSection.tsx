@@ -12,7 +12,7 @@ const PILLARS: Pillar[] = [
   {
     title: "Apps Reales en Google Play",
     lead: "Software probado con usuarios reales",
-    body: "Del diseño y la lógica a la publicación en Google Play Store, con salas multijugador en tiempo real y alta estabilidad.",
+    body: "Del diseño y la lógica a la publicación en Google Play Store, con party games que funcionan offline en un solo teléfono y alta estabilidad.",
   },
   {
     title: "Lanzamiento Rápido y Código Limpio",

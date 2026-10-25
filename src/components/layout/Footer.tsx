@@ -7,13 +7,8 @@ const LINKS = [
     external: true,
   },
   {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/franyel-franyel/",
-    external: true,
-  },
-  {
     label: "Google Play",
-    href: "https://play.google.com/store/apps/details?id=com.impostor.royale",
+    href: "https://play.google.com/store/apps/developer?id=FP+Games+Studio",
     external: true,
   },
   {

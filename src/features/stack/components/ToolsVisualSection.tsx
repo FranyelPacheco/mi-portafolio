@@ -113,11 +113,12 @@ export const ToolsVisualSection = () => {
                       strokeDasharray={circumference}
                       strokeDashoffset={circumference * 0.15}
                       strokeLinecap="round"
-                      className="drop-shadow-[0_0_12px_rgba(59,130,246,0.65)]"
+                      className="ring-spin drop-shadow-[0_0_12px_rgba(59,130,246,0.65)]"
+                      style={{ animationDelay: `${-i * 2}s` }}
                     />
                   </svg>
 
-                  <div className="absolute inset-3 rounded-full bg-[#0E0E12] border border-white/10 flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-200">
+                  <div className="float-y absolute inset-3 rounded-full bg-[#0E0E12] border border-white/10 flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-200" style={{ animationDelay: `${-i * 0.7}s` }}>
                     {tool.icon}
                   </div>
                 </div>

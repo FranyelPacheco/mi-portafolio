@@ -1,23 +1,33 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { ArrowUpRight, Clock, Layers, Mail, ShieldCheck, Smartphone, Sparkles } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Smartphone } from "lucide-react";
 import Folder, { type FolderItem } from "../../../shared/components/Folder/Folder";
+import { GooglePlayIcon } from "../../projects/components/ProjectIllustrations";
 import avatarImg from "../../../assets/avatar-original.jpg";
 import "./HeroFolder.css";
+
+const PLAY_URL = "https://play.google.com/store/apps/developer?id=FP+Games+Studio";
+const PLAY_INDEX = 2;
 
 // Las hojas se diseñan a este tamaño (docW ≈ 224 * 0.54 * 1.9) y escalan con la carpeta
 const MAX_SIZE = 1.9;
 const SHEET_W = 230;
 const SHEET_H = 281;
 
-const useFolderSize = () => {
-  const [size, setSize] = useState(MAX_SIZE);
+// Tamaño de la carpeta y si hay ancho para mostrar las 3 fichas en fila (si no, se apilan)
+const useFolderLayout = () => {
+  const [state, setState] = useState({ size: MAX_SIZE, wide: false });
   useEffect(() => {
-    const fit = () => setSize(Math.min(MAX_SIZE, Math.max(1.2, (window.innerWidth - 40) / 224)));
+    const fit = () => {
+      const w = window.innerWidth;
+      const wide = w >= 1280 || (w >= 760 && w < 1024);
+      // En fila las hojas ocupan ~1.5x el ancho de la carpeta: se reduce para no invadir el texto
+      setState({ size: Math.min(wide ? 1.6 : MAX_SIZE, Math.max(1.2, (w - 40) / 224)), wide });
+    };
     fit();
     window.addEventListener("resize", fit);
     return () => window.removeEventListener("resize", fit);
   }, []);
-  return size;
+  return state;
 };
 
 const Sheet = ({ bg, children }: { bg: string; children: ReactNode }) => (
@@ -29,7 +39,7 @@ const Sheet = ({ bg, children }: { bg: string; children: ReactNode }) => (
   </div>
 );
 
-const SheetHead = ({ icon, title, meta }: { icon: ReactNode; title: string; meta: ReactNode }) => (
+const SheetHead = ({ icon, title, meta }: { icon: ReactNode; title: string; meta?: ReactNode }) => (
   <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-3 gap-2">
     <span className="text-[10px] font-mono text-white uppercase tracking-wider flex items-center gap-1.5 font-bold">
       {icon}
@@ -39,8 +49,13 @@ const SheetHead = ({ icon, title, meta }: { icon: ReactNode; title: string; meta
   </div>
 );
 
-const Chip = ({ children }: { children: ReactNode }) => (
-  <span className="px-2 py-0.5 bg-white/5 rounded border border-white/5">{children}</span>
+const LangBadge = ({ label, bg, ink }: { label: string; bg: string; ink: string }) => (
+  <span
+    className="w-14 h-14 rounded-lg flex items-center justify-center text-xl font-black tracking-tight shadow-md"
+    style={{ background: bg, color: ink }}
+  >
+    {label}
+  </span>
 );
 
 const FICHAS: FolderItem[] = [
@@ -54,7 +69,10 @@ const FICHAS: FolderItem[] = [
         <p className="text-[11px] text-[var(--accent)] font-mono truncate">Frontend &amp; Mobile Developer</p>
       </div>
     </div>
-    <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-[#cbd5e1]">
+    <p className="mt-3 text-[11px] text-[#cbd5e1] leading-relaxed">
+      Con más de 3 años de experiencia, creo apps Android y webs rápidas y cuidadas con React, React Native y TypeScript.
+    </p>
+    <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-[#cbd5e1]">
       <span className="flex items-center gap-1.5 text-emerald-400">
         <ShieldCheck className="w-3.5 h-3.5" />
         Disponible
@@ -64,30 +82,25 @@ const FICHAS: FolderItem[] = [
         Mobile &amp; Web
       </span>
     </div>
-    <div className="mt-4 space-y-1.5 text-[11px] font-mono text-[#94a3b8]">
-      <p className="text-white font-semibold">+3 años de experiencia</p>
-      <p>• Venezuela · 100% remoto</p>
-      <p>• Freelance y tiempo completo</p>
-    </div>
+    <p className="mt-2 text-[10px] font-mono text-[#94a3b8]">Venezuela · 100% remoto</p>
   </Sheet>,
 
-  <Sheet key="arquitectura" bg="#14141a">
-    <SheetHead
-      icon={<Layers className="w-3.5 h-3.5 text-[var(--accent)]" />}
-      title="Arquitectura"
-      meta={<span className="text-[10px] font-mono text-[var(--accent)] font-bold">60 FPS · &lt;30ms</span>}
-    />
-    <div className="space-y-2 text-[11px] font-mono text-[#94a3b8]">
-      <p className="text-white font-semibold">Stack: React Native + React + TS</p>
-      <p>• Carga instantánea y fluidez a 60 FPS</p>
-      <p>• Sincronización en tiempo real sin retrasos</p>
-      <p>• Código limpio, modular y fácil de mantener</p>
+  <Sheet key="lenguaje" bg="#14141a">
+    <SheetHead icon={<span className="text-[var(--accent)]">{"</>"}</span>} title="Lenguaje favorito" />
+    <div className="flex items-center gap-3">
+      <LangBadge label="JS" bg="#F7DF1E" ink="#111111" />
+      <span className="text-[#94a3b8] font-mono text-lg">/</span>
+      <LangBadge label="TS" bg="#3178C6" ink="#ffffff" />
     </div>
+    <h4 className="mt-4 text-sm font-bold text-white tracking-tight">JavaScript &amp; TypeScript</h4>
+    <p className="mt-1 text-[11px] text-[#cbd5e1] leading-relaxed">
+      TypeScript es mi favorito: código tipado, menos errores y apps más seguras de mantener.
+    </p>
   </Sheet>,
 
   <Sheet key="play" bg="#181822">
     <SheetHead
-      icon={<Sparkles className="w-3.5 h-3.5 text-[var(--accent)]" />}
+      icon={<GooglePlayIcon className="w-3.5 h-3.5 text-[var(--accent)]" />}
       title="Google Play"
       meta={
         <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] font-bold">
@@ -95,36 +108,18 @@ const FICHAS: FolderItem[] = [
         </span>
       }
     />
-    <p className="text-[11px] text-[#cbd5e1] leading-relaxed">
-      Impostor Royale y Pa que sufras: software móvil completo en tiendas oficiales, probado con usuarios y validado comercialmente.
+    <h4 className="text-base font-black text-white tracking-tight">FP Games Studio</h4>
+    <p className="mt-1 text-[11px] text-[#cbd5e1] leading-relaxed">
+      Mi cuenta de desarrollador con mis party games: Impostor Royale y Pa&apos; que sufras.
     </p>
-    <div className="mt-3 flex flex-wrap items-center gap-1.5 text-[10px] font-mono text-[#94a3b8]">
-      <Chip>React Native</Chip>
-      <Chip>Expo</Chip>
-      <Chip>TypeScript</Chip>
-    </div>
-  </Sheet>,
-
-  <Sheet key="contacto" bg="#14141a">
-    <SheetHead
-      icon={<Clock className="w-3.5 h-3.5 text-[var(--accent)]" />}
-      title="Contacto"
-      meta={<span className="text-[10px] font-mono text-emerald-400 font-bold">&lt;24 h</span>}
-    />
-    <div className="space-y-2 text-[11px] font-mono text-[#94a3b8]">
-      <p className="text-white font-semibold">Respuesta en menos de 24 horas</p>
-      <p className="flex items-center gap-1.5 break-all">
-        <Mail className="w-3.5 h-3.5 text-[var(--accent)] shrink-0" />
-        franyel.pachecocv@gmail.com
-      </p>
-      <p>• github.com/FranyelPacheco</p>
-      <p>• Zona horaria GMT-4</p>
+    <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--accent)] text-white text-[11px] font-bold">
+      Ver en Google Play <ArrowUpRight className="w-3.5 h-3.5" />
     </div>
   </Sheet>,
 ];
 
 export const HeroFolder = () => {
-  const size = useFolderSize();
+  const { size, wide } = useFolderLayout();
   const [opened, setOpened] = useState(false);
   const fade = { opacity: opened ? 0 : 1 };
 
@@ -135,7 +130,8 @@ export const HeroFolder = () => {
           className="hero-folder"
           variant="matte"
           mode="flap"
-          layout="stack"
+          layout={wide ? "row" : "stack"}
+          zoomOnClick={!wide}
           color="#14141a"
           paperColor="#14141a"
           theme="dark"
@@ -145,6 +141,9 @@ export const HeroFolder = () => {
           tilt={0.6}
           items={FICHAS}
           onOpenChange={setOpened}
+          onItemClick={(_, index) => {
+            if (index === PLAY_INDEX) window.open(PLAY_URL, "_blank", "noopener,noreferrer");
+          }}
         />
 
         {/* Bolsillo de vidrio del diseño original: sello, insignia y pie; se oculta al abrir porque la solapa gira */}
@@ -182,7 +181,7 @@ export const HeroFolder = () => {
       </div>
 
       <p className="mt-6 text-[11px] font-mono text-[var(--text-muted)] text-center">
-        Haz clic para abrir el expediente · arrastra las fichas
+        Haz clic para abrir el expediente · toca la ficha de Google Play para visitar el estudio
       </p>
     </div>
   );

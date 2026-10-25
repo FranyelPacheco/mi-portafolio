@@ -97,7 +97,7 @@ export const AboutVisualSection = () => {
                 >
                   Impostor Royale <ExternalLink className="w-3 h-3 inline" />
                 </a>{" "}
-                (juego multijugador online en tiempo real) y{" "}
+                (party game offline: todos juegan en un solo teléfono) y{" "}
                 <a
                   href="https://play.google.com/store/apps/details?id=com.franyel_pacheco.paquesufras"
                   target="_blank"
@@ -106,7 +106,7 @@ export const AboutVisualSection = () => {
                 >
                   Pa que sufras <ExternalLink className="w-3 h-3 inline" />
                 </a>{" "}
-                (app social interactiva para grupos). No me quedo en la teoría: llevo las ideas desde el diseño hasta la tienda oficial.
+                (party game de tensión social para grupos). No me quedo en la teoría: llevo las ideas desde el diseño hasta la tienda oficial.
               </p>
 
               <p>

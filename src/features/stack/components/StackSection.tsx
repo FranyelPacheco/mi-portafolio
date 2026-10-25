@@ -20,7 +20,7 @@ const skillCategories: CategoryWithMeta[] = [
   {
     code: "02 // MOBILE",
     title: "Desarrollo Nativo Móvil",
-    summary: "Aplicaciones móviles para Android. Estado sincronizado en tiempo real y publicación en tiendas.",
+    summary: "Aplicaciones móviles para Android. Publicación en tiendas oficiales.",
     skills: ["React Native", "Expo"],
     icon: Smartphone,
   },

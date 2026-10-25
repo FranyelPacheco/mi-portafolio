@@ -73,4 +73,4 @@ npm run dev
 
 ---
 
-**Franyel Pacheco** · Desarrollador Frontend React / TypeScript · [LinkedIn](https://www.linkedin.com/in/franyel-franyel/)
+**Franyel Pacheco** · Desarrollador Frontend React / TypeScript

@@ -176,14 +176,6 @@ const HeroSection = () => {
             >
               / GitHub <ArrowUpRight className="w-3 h-3 opacity-60" />
             </a>
-            <a
-              href="https://www.linkedin.com/in/franyel-franyel/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 hover:text-[var(--accent)] transition-colors"
-            >
-              / LinkedIn <ArrowUpRight className="w-3 h-3 opacity-60" />
-            </a>
           </div>
         </div>
       </div>

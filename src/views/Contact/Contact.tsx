@@ -4,7 +4,6 @@ import {
   Loader2,
   CheckCircle2,
   AlertCircle,
-  ArrowUpRight,
   Copy,
   Check,
   DollarSign,
@@ -291,16 +290,6 @@ const Contact = () => {
                 )}
                 <span>{copied ? "¡Correo copiado!" : "franyel.pachecocv@gmail.com"}</span>
               </button>
-
-              <a
-                href="https://www.linkedin.com/in/franyel-franyel/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 hover:underline uppercase tracking-wider min-h-[44px] text-xs font-mono"
-              >
-                <span>LinkedIn</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
             </div>
           </div>
         </div>

@@ -247,7 +247,7 @@ html.lenis body {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 38s linear infinite;
+  animation: marquee 26s linear infinite;
 }
 .marquee:hover .marquee-track {
   animation-play-state: paused;
@@ -256,5 +256,26 @@ html.lenis body {
   to { transform: translateX(-50%); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
+  /* Se mantiene en movimiento pero muy lento: es el elemento principal de la banda */
+  .marquee-track { animation-duration: 90s; }
+}
+
+/* ─── Herramientas en movimiento ─── */
+.ring-spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ring-spin 9s linear infinite;
+}
+.float-y {
+  animation: float-y 4s ease-in-out infinite;
+}
+@keyframes ring-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes float-y {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ring-spin, .float-y { animation: none; }
 }
