@@ -1,75 +1,100 @@
-import { Target, Rocket, FolderCode, Wrench } from "lucide-react";
+import { ScrollReveal } from "../../shared/components/ScrollReveal";
 
-const stats = [
-  { value: "5+", label: "Proyectos", icon: FolderCode },
-  { value: "6+", label: "Tecnologías", icon: Wrench },
-  { value: "100%", label: "Remoto", icon: Target },
+const metrics = [
+  { value: "05", label: "Proyectos en producción & código abierto" },
+  { value: "02", label: "Plataformas nativas dominadas (Web & Android)" },
+  { value: "100%", label: "Disponibilidad remota inmediata" },
+];
+
+const principles = [
+  {
+    id: "01",
+    title: "Arquitectura Modular y Desacoplada",
+    detail:
+      "Separación estricta entre vistas declarativas, hooks de control y adaptadores de datos. Cero pantallas monolíticas y máxima predictibilidad.",
+  },
+  {
+    id: "02",
+    title: "Tipado Estricto de Extremo a Extremo",
+    detail:
+      "Inferencia profunda en TypeScript sin 'any'. Validación en límites del sistema con Zod, previniendo fallos en tiempo de ejecución.",
+  },
+  {
+    id: "03",
+    title: "Criterio de Producto y Ejecución Real",
+    detail:
+      "Experiencia llevando software desde el diseño de interfaz hasta su publicación en tiendas oficiales como Google Play y entornos cloud.",
+  },
 ];
 
 const About = () => {
   return (
-    <section className="py-16 px-6 bg-slate-900 border-t border-slate-800">
-      <div className="max-w-6xl mx-auto space-y-10">
-        <div className="text-center space-y-3 animate-fade-in-up">
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Sobre <span className="text-sky-400">Mí</span>
-          </h3>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="text-center space-y-2 p-4 rounded-xl bg-slate-800/30 border border-slate-800 hover:border-sky-500/30 transition-colors"
-            >
-              <stat.icon className="w-5 h-5 text-sky-400 mx-auto" />
-              <p className="text-2xl sm:text-3xl font-extrabold text-white">
-                {stat.value}
-              </p>
-              <p className="text-xs text-slate-500 font-mono uppercase tracking-wider">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-sky-500/20 hover:shadow-lg hover:shadow-sky-500/5 transition-all animate-fade-in-up animation-delay-200">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800">
-                <Rocket className="w-5 h-5 text-sky-400" />
+    <section id="perfil" className="py-28 px-4 sm:px-6 md:px-12 border-t border-[var(--border-subtle)] bg-[var(--bg-base)] transition-colors duration-500">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* ── Columna izquierda ── */}
+          <div className="lg:col-span-5 space-y-8">
+            <ScrollReveal>
+              <div className="space-y-4">
+                <div className="font-mono text-xs uppercase tracking-widest text-[var(--accent)]">
+                  [ 01 // CRITERIO Y PERFIL ]
+                </div>
+                <h2 className="text-3xl sm:text-5xl font-black text-[var(--text-primary)] tracking-tight leading-[1.05] uppercase">
+                  Interfaces rápidas, legibles y de alto calibre.
+                </h2>
+                <p className="text-[var(--text-secondary)] text-base leading-relaxed">
+                  Soy Franyel Pacheco, ingeniero frontend enfocado en React, React Native y TypeScript. Diseño y construyo software cuidando con igual rigor la solidez de la arquitectura interna y la fluidez táctil en cada interacción.
+                </p>
               </div>
-              <h4 className="text-lg font-bold text-white">Quién Soy</h4>
-            </div>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              Soy Franyel Pacheco, desarrollador Frontend apasionado por
-              construir aplicaciones web y móviles escalables. Me enfoco en
-              escribir código limpio, bien estructurado y en aprender las
-              buenas prácticas de arquitectura de software.
-            </p>
+            </ScrollReveal>
+
+            {/* Métricas destacadas */}
+            <ScrollReveal delay={0.1}>
+              <dl className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3 pt-2">
+                {metrics.map((metric) => (
+                  <div
+                    key={metric.label}
+                    className="rounded-xl border border-[var(--border-subtle)] bg-gradient-to-r from-[var(--bg-surface)] to-[var(--bg-base)] p-4 flex items-center justify-between gap-4"
+                  >
+                    <dt className="text-xs text-[var(--text-secondary)] leading-snug">
+                      {metric.label}
+                    </dt>
+                    <dd className="font-mono text-2xl font-black text-[var(--accent)] tabular-nums shrink-0 drop-shadow-[0_0_12px_var(--accent-glow)]">
+                      {metric.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </ScrollReveal>
           </div>
 
-          <div className="bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-sky-500/20 hover:shadow-lg hover:shadow-sky-500/5 transition-all animate-fade-in-up animation-delay-400">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800">
-                <Target className="w-5 h-5 text-emerald-400" />
+          {/* ── Columna derecha: principios de ingeniería ── */}
+          <div className="lg:col-span-7">
+            <ScrollReveal delay={0.05}>
+              <div className="rounded-2xl border border-[var(--border-strong)] bg-gradient-to-b from-[var(--bg-surface)] to-[var(--bg-base)] divide-y divide-[var(--border-subtle)] shadow-[0_20px_50px_rgba(0,0,0,0.6)] overflow-hidden">
+                {principles.map((item) => (
+                  <div
+                    key={item.id}
+                    className="p-6 sm:p-8 flex flex-col sm:flex-row gap-5 sm:gap-7 items-start hover:bg-white/[0.02] transition-colors duration-200"
+                  >
+                    <span className="font-mono text-xs font-bold text-[var(--accent)] bg-[var(--badge-bg)] border border-[var(--badge-border)] px-3 py-1.5 rounded-md tabular-nums shrink-0">
+                      {item.id}
+                    </span>
+                    <div className="space-y-2 min-w-0">
+                      <h3 className="text-lg font-bold text-[var(--text-primary)] tracking-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                        {item.detail}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <h4 className="text-lg font-bold text-white">Objetivo</h4>
-            </div>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              Mi meta es consolidarme como Desarrollador Frontend en un equipo
-              remoto donde pueda aportar valor real, seguir creciendo
-              profesionalmente y trabajar en proyectos que desafíen mis
-              capacidades técnicas.
-            </p>
+            </ScrollReveal>
           </div>
-        </div>
 
-        <div className="text-center">
-          <span className="inline-block px-4 py-2 text-sm font-mono font-medium rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-            Disponible para oportunidades remotas
-          </span>
         </div>
       </div>
     </section>

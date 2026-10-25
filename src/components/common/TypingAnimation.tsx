@@ -1,26 +1,34 @@
 import { useState, useEffect } from "react";
 
-interface TypingAnimationProps {
+export interface TypingAnimationProps {
   children: string;
   speed?: number;
   className?: string;
 }
 
+const prefersReducedMotion = (): boolean =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 const TypingAnimation = ({
   children,
-  speed = 80,
+  speed = 45,
   className = "",
 }: TypingAnimationProps) => {
-  const [displayText, setDisplayText] = useState("");
-  const [showCursor, setShowCursor] = useState(true);
+  const [charCount, setCharCount] = useState<number>(() =>
+    prefersReducedMotion() ? children.length : 0
+  );
 
   useEffect(() => {
+    if (prefersReducedMotion()) {
+      return;
+    }
+
     let index = 0;
     const interval = setInterval(() => {
-      if (index <= children.length) {
-        setDisplayText(children.slice(0, index));
-        index++;
-      } else {
+      index += 1;
+      setCharCount(index);
+      if (index >= children.length) {
         clearInterval(interval);
       }
     }, speed);
@@ -28,22 +36,17 @@ const TypingAnimation = ({
     return () => clearInterval(interval);
   }, [children, speed]);
 
-  useEffect(() => {
-    const cursorInterval = setInterval(() => {
-      setShowCursor((prev) => !prev);
-    }, 530);
-
-    return () => clearInterval(cursorInterval);
-  }, []);
+  const isTyping = charCount < children.length;
 
   return (
     <span className={`inline-block ${className}`}>
-      {displayText}
-      <span
-        className={`inline-block w-[3px] h-[1em] bg-sky-400 ml-1 align-middle transition-opacity duration-100 ${
-          showCursor ? "opacity-100" : "opacity-0"
-        }`}
-      />
+      {children.slice(0, charCount)}
+      {isTyping && (
+        <span
+          aria-hidden="true"
+          className="inline-block w-[2px] h-[0.9em] bg-[#CCFF00] ml-1 align-middle"
+        />
+      )}
     </span>
   );
 };

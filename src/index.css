@@ -1,13 +1,124 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
+:root {
+  /* Identidad Oficial: Hyper Cobalt (Linear & Apple Developer Architecture) */
+  --bg-base: #06080E;
+  --bg-surface: #0C111E;
+  --bg-elevated: #141C30;
+  --border-subtle: rgba(59, 130, 246, 0.14);
+  --border-strong: rgba(59, 130, 246, 0.32);
+  --text-primary: #FFFFFF;
+  --text-secondary: #93C5FD;
+  --text-muted: #64748B;
+  --accent: #3B82F6;
+  --accent-hover: #2563EB;
+  --accent-glow: rgba(59, 130, 246, 0.45);
+  --accent-contrast: #FFFFFF;
+  --aura-gradient: radial-gradient(circle, rgba(59, 130, 246, 0.28) 0%, rgba(29, 78, 216, 0.18) 45%, rgba(6, 8, 14, 0) 70%);
+  --badge-bg: rgba(59, 130, 246, 0.12);
+  --badge-border: rgba(59, 130, 246, 0.35);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
+/* Font smoothing editorial — crítico para tipografía de alta gama en macOS */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  /* Lenis necesita overflow en html */
+  overflow-x: hidden;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+body {
+  background-color: var(--bg-base);
+  transition: background-color 300ms ease;
+  min-height: 100dvh;
+  position: relative;
+}
+
+/* Halftone dot-grid pattern en esquinas superiores (fiel a la referencia) */
+.halftone-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.12) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+  mask-image: 
+    radial-gradient(circle at 12% 15%, black 0%, transparent 55%),
+    radial-gradient(circle at 88% 15%, black 0%, transparent 55%),
+    radial-gradient(circle at 50% 90%, black 0%, transparent 45%);
+  -webkit-mask-image: 
+    radial-gradient(circle at 12% 15%, black 0%, transparent 55%),
+    radial-gradient(circle at 88% 15%, black 0%, transparent 55%),
+    radial-gradient(circle at 50% 90%, black 0%, transparent 45%);
+}
+
+/* Tipografía de metal pulido / cromo líquido de alta gama */
+.metallic-text {
+  background: linear-gradient(180deg, #FFFFFF 15%, #E2E8F0 50%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metallic-gold-text {
+  background: linear-gradient(180deg, #FEF08A 0%, #F59E0B 60%, #B45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism de alta definición con bisel de luz especular */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.75),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+}
+
+/* Headings: text-wrap balance para tipografía limpia sin huérfanos */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Números tabulares — para contadores y datos numéricos que no deben shifte */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Lenis scroll override ─── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* ─── Animaciones de entrada (CSS-only, para elementos sin GSAP) ─── */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -15,37 +126,135 @@ html {
   }
 }
 
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out both;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeInUp 400ms var(--ease-out) forwards;
 }
 
-.shimmer-effect {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    transparent 100%
-  );
-  animation: shimmer 2s ease-in-out infinite;
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 300ms ease forwards;
 }
 
-.animation-delay-200 {
-  animation-delay: 0.2s;
+.stagger-1 { animation-delay: 80ms; }
+.stagger-2 { animation-delay: 160ms; }
+.stagger-3 { animation-delay: 240ms; }
+.stagger-4 { animation-delay: 320ms; }
+
+/* ─── Botones: scale on press (principio 12) ─── */
+.btn-press {
+  transition:
+    transform 150ms var(--ease-out),
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
 }
 
-.animation-delay-400 {
-  animation-delay: 0.4s;
+.btn-press:active:not(:disabled) {
+  /* Exactamente 0.96 — nunca por debajo de 0.95 */
+  transform: scale(0.96);
 }
 
-.animation-delay-600 {
-  animation-delay: 0.6s;
+/* ─── Cards interactivas ─── */
+.surface-interactive {
+  transition:
+    transform 220ms var(--ease-out),
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .surface-interactive:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-strong);
+  }
+
+  .avatar-frame:hover .avatar-img {
+    transform: scale(1.04);
+  }
+}
+
+.avatar-img {
+  transition: transform 350ms var(--ease-out);
+}
+
+/* ─── GSAP reveal: elementos ocultos hasta que la animación los active ─── */
+.gsap-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Outline de imagen sutil — 1px blanco en dark mode */
+.img-outline {
+  outline: 1px solid oklch(1 0 0 / 0.08);
+  outline-offset: 0px;
+}
+
+/* Magnetic button — la transform real se aplica via JS */
+.magnetic {
+  transition:
+    transform 400ms var(--ease-out),
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+/* ─── Reducción de movimiento ─── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-in-up,
+  .animate-fade-in {
+    transform: none;
+    animation-duration: 1ms;
+  }
+
+  .gsap-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .btn-press,
+  .surface-interactive,
+  .avatar-img,
+  .magnetic {
+    transition:
+      background-color 150ms ease,
+      border-color 150ms ease,
+      color 150ms ease,
+      opacity 150ms ease;
+  }
+
+  .btn-press:active:not(:disabled),
+  .surface-interactive:hover,
+  .avatar-frame:hover .avatar-img {
+    transform: none;
+  }
+}
+/* ─── Marquee de tecnologías ─── */
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
 }

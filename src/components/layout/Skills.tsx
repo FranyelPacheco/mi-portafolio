@@ -1,75 +1,79 @@
 import type { SkillCategory } from "../../types/skill";
-import { Code, Smartphone, Database, Wrench } from "lucide-react";
 import { getTechIcon } from "../../data/techIcons";
 
-const skillCategories: (SkillCategory & { icon: React.ReactNode })[] = [
+const skillCategories: (SkillCategory & { code: string; summary: string })[] = [
   {
+    code: "01 // WEB",
     title: "Desarrollo Frontend",
-    icon: <Code className="w-5 h-5 text-sky-400" />,
-    skills: ["React", "TypeScript", "Tailwind CSS", "Vite", "HTML", "CSS", "JavaScript"],
+    summary: "Interfaces reactivas, componentes tipados y estilos modulares.",
+    skills: ["React", "TypeScript", "JavaScript", "Tailwind CSS", "Vite", "HTML", "CSS"],
   },
   {
-    title: "Desarrollo Móvil",
-    icon: <Smartphone className="w-5 h-5 text-emerald-400" />,
+    code: "02 // MÓVIL",
+    title: "Aplicaciones Nativas",
+    summary: "Desarrollo móvil para Android con estado en tiempo real.",
     skills: ["React Native", "Expo"],
   },
   {
-    title: "Backend & Bases de Datos",
-    icon: <Database className="w-5 h-5 text-indigo-400" />,
-    skills: ["MySQL", "MongoDB", "Node.js", "PHP"],
+    code: "03 // DATOS & API",
+    title: "Backend & Persistencia",
+    summary: "Diseño de esquemas relacionales, consultas SQL y servicios de servidor.",
+    skills: ["Node.js", "MySQL", "MongoDB", "PHP"],
   },
   {
-    title: "Herramientas & Entorno",
-    icon: <Wrench className="w-5 h-5 text-amber-400" />,
+    code: "04 // OPERACIONES",
+    title: "Control & Despliegue",
+    summary: "Versionado colaborativo, integración continua y publicación en la nube.",
     skills: ["Git", "GitHub"],
   },
 ];
 
 const Skills = () => {
   return (
-    <section className="py-16 px-6 bg-slate-900/50 border-t border-slate-800">
+    <section className="py-20 px-4 sm:px-6 border-t border-zinc-800 bg-[#121212]">
       <div className="max-w-6xl mx-auto space-y-10">
-        
-        {/* Título de la sección */}
-        <div className="text-center space-y-3 animate-fade-in-up">
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Tech <span className="text-sky-400">Stack</span> & Competencias
-          </h3>
-          <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
-            Las tecnologías y herramientas que utilizo a diario para construir software escalable y de alto rendimiento.
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="space-y-3">
+            <div className="font-mono text-xs uppercase tracking-widest text-zinc-500">
+              [ 02 // STACK TÉCNICO ]
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-100 tracking-tight">
+              Tecnologías y Herramientas
+            </h2>
+          </div>
+          <p className="text-zinc-400 text-sm max-w-md font-mono">
+            Herramientas empleadas en proyectos reales publicados y repositorios activos.
           </p>
         </div>
 
-        {/* Grid de Categorías */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {skillCategories.map((category, index) => (
-            <div 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-800 border border-zinc-800">
+          {skillCategories.map((category) => (
+            <div
               key={category.title}
-              className={`bg-slate-800/40 border border-slate-800 p-6 rounded-2xl space-y-4 hover:border-sky-500/20 hover:shadow-lg hover:shadow-sky-500/5 transition-all animate-fade-in-up ${
-                index === 0 ? "animation-delay-200" : index === 1 ? "animation-delay-400" : index === 2 ? "animation-delay-600" : ""
-              }`}
+              className="bg-[#161618] p-6 sm:p-8 flex flex-col justify-between gap-6"
             >
-              {/* Encabezado de la Tarjeta */}
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800">
-                  {category.icon}
-                </div>
-                <h4 className="text-lg font-bold text-white">
+              <div className="space-y-2">
+                <span className="font-mono text-xs text-zinc-500 uppercase tracking-widest block">
+                  {category.code}
+                </span>
+                <h3 className="text-xl font-bold text-zinc-100 tracking-tight">
                   {category.title}
-                </h4>
+                </h3>
+                <p className="text-sm text-zinc-400 leading-relaxed">
+                  {category.summary}
+                </p>
               </div>
 
-              {/* Lista de Badges con iconos */}
-              <div className="flex flex-wrap gap-2 pt-2">
+              <div className="flex flex-wrap gap-2 pt-2 border-t border-zinc-800/80">
                 {category.skills.map((skill) => {
                   const icon = getTechIcon(skill);
                   return (
-                    <span 
+                    <span
                       key={skill}
-                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-lg border transition-colors hover:brightness-125 ${icon.bg}`}
+                      className={`inline-flex items-center gap-2 px-3 py-1.5 text-xs font-mono border ${icon.bg}`}
                     >
                       <span className={`font-bold ${icon.color}`}>{icon.label}</span>
-                      <span className="text-slate-300">{skill}</span>
+                      <span className="text-zinc-200">{skill}</span>
                     </span>
                   );
                 })}
@@ -77,7 +81,6 @@ const Skills = () => {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

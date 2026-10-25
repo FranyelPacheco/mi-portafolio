@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mi-portafolio-eta.vercel.app/sitemap.xml

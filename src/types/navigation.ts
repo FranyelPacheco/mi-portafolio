@@ -1,8 +1,7 @@
-import type { ComponentType } from 'react';
+import type { ComponentType, LazyExoticComponent } from "react";
 
-// Contrato que define la estructura obligatoria de cada ruta en la app
 export interface RouteConfig {
-  path: string; 
+  path: string;
   name: string;
-  component: ComponentType; 
+  component: ComponentType | LazyExoticComponent<ComponentType>;
 }

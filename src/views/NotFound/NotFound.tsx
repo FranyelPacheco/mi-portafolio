@@ -5,21 +5,27 @@ const NotFound = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="min-h-[calc(100vh-64px)] flex items-center justify-center px-6 bg-slate-900">
-      <div className="text-center space-y-4">
-        <p className="text-8xl sm:text-9xl font-extrabold text-sky-400/20 select-none">
+    <section className="min-h-[calc(100dvh-130px)] flex items-center justify-center px-4 sm:px-6 bg-[var(--bg-base)] transition-colors duration-500">
+      <div className="max-w-md w-full border border-[var(--border-strong)] bg-gradient-to-b from-[var(--bg-surface)] to-[var(--bg-base)] p-8 sm:p-12 text-center space-y-6 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] backdrop-blur-md">
+        <div className="font-mono text-xs uppercase tracking-widest text-[var(--accent)]">
+          [ 404 // RUTA NO ENCONTRADA ]
+        </div>
+        <p className="text-7xl sm:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-[var(--accent)] to-[var(--text-secondary)] tracking-tight tabular-nums select-none drop-shadow-[0_0_30px_var(--accent-glow)]">
           404
         </p>
-        <p className="text-slate-400 text-lg">
-          Esta página no existe.
+        <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+          La dirección que intentas abrir no existe o fue reestructurada dentro de la nueva arquitectura del portafolio.
         </p>
-        <button
-          onClick={() => navigate("/")}
-          className="inline-flex items-center gap-2 px-5 py-2.5 mt-4 text-sm font-medium text-slate-400 border border-slate-700 hover:border-slate-500 hover:text-white rounded-lg transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Volver
-        </button>
+        <div className="pt-2">
+          <button
+            type="button"
+            onClick={() => navigate("/")}
+            className="inline-flex items-center gap-2 px-6 py-3 text-xs font-mono uppercase tracking-wider font-bold bg-[var(--accent)] text-[var(--accent-contrast)] hover:opacity-90 rounded-full btn-press cursor-pointer shadow-[0_0_20px_var(--accent-glow)] min-h-[44px]"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Volver al Inicio
+          </button>
+        </div>
       </div>
     </section>
   );

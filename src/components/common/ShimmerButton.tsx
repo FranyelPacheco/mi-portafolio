@@ -1,19 +1,28 @@
 import type { ReactNode } from "react";
 
-interface ShimmerButtonProps {
+export interface ShimmerButtonProps {
   children: ReactNode;
   className?: string;
   onClick?: () => void;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
-const ShimmerButton = ({ children, className = "", onClick }: ShimmerButtonProps) => {
+const ShimmerButton = ({
+  children,
+  className = "",
+  onClick,
+  type = "button",
+  disabled = false,
+}: ShimmerButtonProps) => {
   return (
     <button
+      type={type}
+      disabled={disabled}
       onClick={onClick}
-      className={`group relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-600 text-slate-900 font-semibold rounded-lg shadow-lg shadow-sky-500/20 transition-all hover:-translate-y-0.5 overflow-hidden ${className}`}
+      className={`group relative inline-flex items-center justify-center gap-2.5 px-6 py-3 bg-[#CCFF00] hover:bg-[#B8E600] text-[#121212] font-semibold text-sm tracking-tight border border-[#CCFF00] btn-press focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#CCFF00] disabled:opacity-40 disabled:pointer-events-none cursor-pointer ${className}`}
     >
       <span className="relative z-10 flex items-center gap-2">{children}</span>
-      <span className="absolute inset-0 z-0 shimmer-effect" />
     </button>
   );
 };

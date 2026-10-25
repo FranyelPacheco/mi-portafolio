@@ -1,9 +1,9 @@
+import { lazy } from "react";
 import type { RouteConfig } from "../types/navigation";
 import Home from "../views/Home/Home";
-import Projects from "../views/Projects/Projects";
-import Contact from "../views/Contact/Contact";
+const Projects = lazy(() => import("../views/Projects/Projects"));
+const Contact = lazy(() => import("../views/Contact/Contact"));
 
-// Array centralizado con todas las páginas del portafolio, protegido por nuestro molde
 export const AppRoutes: RouteConfig[] = [
   {
     path: "/",
