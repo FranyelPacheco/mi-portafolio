@@ -269,7 +269,7 @@ export const CardPortafolioIllustration = () => (
           <span className="text-[8px] text-zinc-500 ml-1">portfolio.config.ts</span>
         </div>
         <img loading="lazy" decoding="async"
-          src="/images/projects/portfolio-icon.svg"
+          src="/images/projects/portfolio-icon.webp"
           alt="Portfolio Icon"
           className="w-4 h-4 object-contain"
         />
@@ -296,7 +296,7 @@ export const CardTikTokIllustration = () => (
         <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
         BOT ACTIVO · WHATSAPP
       </span>
-      <span className="text-zinc-400">Node.js + FFmpeg</span>
+      <span className="text-zinc-400">TypeScript</span>
     </div>
 
     {/* Visual pipeline with Real TikSticker Brand Logo */}
@@ -320,7 +320,7 @@ export const CardTikTokIllustration = () => (
     </div>
 
     <div className="bg-black/40 backdrop-blur-md rounded-lg p-1.5 border border-white/[0.06] flex items-center justify-between text-[9px] font-mono">
-      <span className="text-zinc-300">Socket @baileys</span>
+      <span className="text-zinc-300">WhatsApp</span>
       <span className="text-amber-400 font-bold">Sin Anuncios</span>
     </div>
   </figure>

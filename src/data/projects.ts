@@ -12,7 +12,7 @@ export const projects: ProjectConfig[] = [
       "Elimina la molestia de que todos tengan que instalar la app y conectarse a internet para jugar en grupo presencialmente.",
     keyHighlight:
       "Algoritmo anti-repetición O(1) con memoria FIFO para 180+ cartas, navegación atómica anti-trampas y compresión WebP.",
-    technologies: ["React Native", "Expo", "TypeScript"],
+    technologies: ["TypeScript"],
     githubUrl: "https://github.com/FranyelPacheco/impostor-royale-privacy",
     liveUrl: "https://play.google.com/store/apps/details?id=com.impostor.royale",
     featured: true,
@@ -41,7 +41,7 @@ export const projects: ProjectConfig[] = [
       "Elimina los clichés de verdad o reto y las suscripciones de pago abusivas con una experiencia 100% offline.",
     keyHighlight:
       "Persistencia C++ con MMKV (30x más rápida que AsyncStorage), Reanimated 4 a 60 fps y 19 pruebas unitarias en Jest.",
-    technologies: ["React Native", "Expo", "TypeScript"],
+    technologies: ["TypeScript"],
     githubUrl: "https://github.com/FranyelPacheco/Pa-que-sufras",
     liveUrl: "https://play.google.com/store/apps/details?id=com.franyel_pacheco.paquesufras",
     featured: true,
@@ -70,7 +70,7 @@ export const projects: ProjectConfig[] = [
       "Evita descargar aplicaciones de terceros con publicidad invasiva para crear stickers animados compatibles con WhatsApp.",
     keyHighlight:
       "Transcodificación con FFmpeg a WebP (512x512, <500 KB), colas FIFO asíncronas por usuario y WebSocket persistente.",
-    technologies: ["TypeScript", "Node.js", "FFmpeg", "Uso de APIs"],
+    technologies: ["TypeScript"],
     featured: true,
     icon: "/images/projects/tiksticker-icon.svg",
     themeColor: {
@@ -118,7 +118,7 @@ export const projects: ProjectConfig[] = [
       "Controla el stock exacto de mezclas en milímetros y fracciones mínimas (hasta 1/128 de galón) sin mermas fantasma.",
     keyHighlight:
       "Arquitectura MVC en PHP POO con transacciones PDO atómicas, base de datos en 3FN y cobranzas multimoneda auditadas.",
-    technologies: ["PHP", "MySQL", "JavaScript"],
+    technologies: ["PHP", "SQL", "JavaScript"],
     githubUrl: "https://github.com/FranyelPacheco/SP-Perfect-Color",
     featured: false,
     icon: "/images/projects/sp-perfect-color-logo.webp",
@@ -144,7 +144,7 @@ export const projects: ProjectConfig[] = [
       "Permite calcular y consultar el tipo de cambio real al instante sin publicidad invasiva ni recargas lentas de página.",
     keyHighlight:
       "Consumo directo de APIs de Binance P2P y ExchangeRate, cálculo reactivo en milisegundos y privacidad total sin cookies.",
-    technologies: ["JavaScript", "CSS", "Uso de APIs"],
+    technologies: ["JavaScript", "HTML", "CSS"],
     githubUrl: "https://github.com/FranyelPacheco/DolarAhora",
     featured: false,
     icon: "/images/projects/dolarahora-logo.svg",
@@ -167,11 +167,11 @@ export const projects: ProjectConfig[] = [
       "Demuestra arquitectura modular y micro-interacciones 3D fluidas a 60 FPS con código semántico estricto y accesible.",
     keyHighlight:
       "Stack 3D interactivo, navbar reactivo a la inercia del scroll, cero divitis y envío seguro con Resend Serverless.",
-    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    technologies: ["TypeScript", "CSS"],
     githubUrl: "https://github.com/FranyelPacheco/mi-portafolio",
     liveUrl: "https://mi-portafolio-eta.vercel.app/",
     featured: false,
-    icon: "/images/projects/portfolio-icon.svg",
+    icon: "/images/projects/portfolio-icon.webp",
     themeColor: {
       glow: "rgba(56, 189, 248, 0.22)",
       border: "rgba(56, 189, 248, 0.28)",

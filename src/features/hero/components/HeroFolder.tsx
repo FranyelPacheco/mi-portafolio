@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { ArrowUpRight, ShieldCheck, Smartphone } from "lucide-react";
 import Folder, { type FolderItem } from "../../../shared/components/Folder/Folder";
 import { GooglePlayIcon } from "../../projects/components/ProjectIllustrations";
-import avatarImg from "../../../assets/avatar-original.jpg";
+import avatarImg from "../../../assets/logo-oficial.webp";
 import "./HeroFolder.css";
 
 const PLAY_URL = "https://play.google.com/store/apps/developer?id=FP+Games+Studio";
@@ -154,7 +154,7 @@ export const HeroFolder = () => {
           <div aria-hidden="true" className="absolute -top-3.5 right-3 rotate-[6deg]">
             <div className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 text-white px-3 py-1 rounded-md shadow-[0_8px_20px_rgba(59,130,246,0.55)] border border-blue-400/50 flex flex-col items-center">
               <span className="font-pixel text-xs sm:text-sm leading-none whitespace-nowrap">Google Play Store</span>
-              <span className="font-pixel text-[9px] tracking-wider uppercase leading-tight mt-0.5 whitespace-nowrap text-blue-100">2 Apps Publicadas</span>
+              <span className="text-[9px] font-bold tracking-wider uppercase leading-tight mt-0.5 whitespace-nowrap text-blue-100">2 Apps Publicadas</span>
             </div>
           </div>
 
