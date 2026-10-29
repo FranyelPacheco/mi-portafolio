@@ -158,7 +158,7 @@ const Projects = () => {
             onClick={() => setActiveFilter(null)}
             className={`px-3.5 py-2 text-xs font-mono uppercase tracking-wider border rounded-lg btn-press cursor-pointer min-h-[44px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] ${
               activeFilter === null
-                ? "bg-[var(--accent)] text-white border-[var(--accent)] font-semibold shadow-[0_0_15px_var(--accent-glow)]"
+                ? "bg-[var(--accent-strong)] text-white border-[var(--accent-strong)] font-semibold shadow-[0_0_15px_var(--accent-glow)]"
                 : "bg-[var(--bg-surface)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)] hover:text-white"
             }`}
           >
@@ -173,7 +173,7 @@ const Projects = () => {
                 onClick={() => setActiveFilter(isSelected ? null : tech)}
                 className={`px-3.5 py-2 text-xs font-mono uppercase tracking-wider border rounded-lg btn-press cursor-pointer min-h-[44px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] ${
                   isSelected
-                    ? "bg-[var(--accent)] text-white border-[var(--accent)] font-semibold shadow-[0_0_15px_var(--accent-glow)]"
+                    ? "bg-[var(--accent-strong)] text-white border-[var(--accent-strong)] font-semibold shadow-[0_0_15px_var(--accent-glow)]"
                     : "bg-[var(--bg-surface)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)] hover:text-white"
                 }`}
               >
@@ -200,7 +200,7 @@ const Projects = () => {
             <button
               type="button"
               onClick={() => setActiveFilter(null)}
-              className="px-4 py-2.5 text-xs font-mono uppercase tracking-wider bg-[var(--accent)] text-white font-semibold rounded-lg btn-press cursor-pointer min-h-[44px] shadow-[0_0_15px_var(--accent-glow)]"
+              className="px-4 py-2.5 text-xs font-mono uppercase tracking-wider bg-[var(--accent-strong)] text-white font-semibold rounded-lg btn-press cursor-pointer min-h-[44px] shadow-[0_0_15px_var(--accent-glow)]"
             >
               Mostrar todos
             </button>

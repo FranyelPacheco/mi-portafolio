@@ -22,28 +22,28 @@ export interface ColorPalette {
   };
 }
 
-// Identidad Oficial Definitiva: Mono Titanium con Acentos Azules Identitarios
+// Identidad de marca "Programador en camino": sistema Hyper Cobalt
 export const MONO_TITANIUM_PALETTE: ColorPalette = {
   id: "monochrome",
-  name: "Mono Titanium & Blue Accent",
-  tagline: "Titanio carbón mate, tipografía cromo y acentos azul cobalto",
-  swatch: ["#050505", "#0E0E0E", "#181818", "#3B82F6", "#FFFFFF"],
+  name: "Hyper Cobalt",
+  tagline: "Fondo casi negro azulado, texto blanco y acento cobalto",
+  swatch: ["#06080E", "#0C111E", "#141C30", "#3B82F6", "#FFFFFF"],
   tokens: {
-    bgBase: "#050505",
-    bgSurface: "#0C0C0F",
-    bgElevated: "#141418",
-    borderSubtle: "rgba(255, 255, 255, 0.08)",
-    borderStrong: "rgba(59, 130, 246, 0.28)",
+    bgBase: "#06080E",
+    bgSurface: "#0C111E",
+    bgElevated: "#141C30",
+    borderSubtle: "rgba(59, 130, 246, 0.14)",
+    borderStrong: "rgba(59, 130, 246, 0.32)",
     accent: "#3B82F6",
-    accentHover: "#2563EB",
-    accentGlow: "rgba(59, 130, 246, 0.40)",
+    accentHover: "#1D4ED8",
+    accentGlow: "rgba(59, 130, 246, 0.45)",
     accentContrastText: "#FFFFFF",
     textPrimary: "#FFFFFF",
-    textSecondary: "#A1A1AA",
-    textMuted: "#52525B",
+    textSecondary: "#93C5FD",
+    textMuted: "#8190A8",
     auraGradient:
-      "radial-gradient(circle, rgba(59, 130, 246, 0.16) 0%, rgba(255, 255, 255, 0.04) 40%, rgba(5, 5, 5, 0) 70%)",
-    badgeBg: "rgba(59, 130, 246, 0.10)",
-    badgeBorder: "rgba(59, 130, 246, 0.30)",
+      "radial-gradient(circle, rgba(59, 130, 246, 0.28) 0%, rgba(29, 78, 216, 0.18) 45%, rgba(6, 8, 14, 0) 70%)",
+    badgeBg: "rgba(59, 130, 246, 0.12)",
+    badgeBorder: "rgba(59, 130, 246, 0.35)",
   },
 };

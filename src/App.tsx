@@ -26,7 +26,7 @@ const AppContent = () => {
       {/* Enlace accesible para lectores de pantalla y navegación por teclado (WCAG AAA) */}
       <a
         href="#contenido-principal"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[100] px-4 py-2.5 rounded-xl bg-[var(--accent)] text-white font-mono text-xs font-bold shadow-[0_10px_25px_rgba(59,130,246,0.6)] outline-none ring-2 ring-white"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[100] px-4 py-2.5 rounded-xl bg-[var(--accent-strong)] text-white font-mono text-xs font-bold shadow-[0_10px_25px_rgba(59,130,246,0.6)] outline-none ring-2 ring-white"
       >
         Saltar al contenido principal
       </a>

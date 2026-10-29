@@ -56,7 +56,7 @@ export const AboutVisualSection = () => {
                 <div className="pt-2 border-t border-white/10">
                   <a
                     href="mailto:franyel.pachecocv@gmail.com"
-                    className="flex items-center justify-center gap-2 w-full py-2 px-3 rounded-lg bg-[var(--accent)] hover:opacity-90 text-white font-bold text-[11px] uppercase tracking-wider transition-all"
+                    className="flex items-center justify-center gap-2 w-full py-2 px-3 rounded-lg bg-[var(--accent-strong)] hover:opacity-90 text-white font-bold text-[11px] uppercase tracking-wider transition-all"
                   >
                     <Mail className="w-3.5 h-3.5" aria-hidden="true" />
                     Escribirme al correo

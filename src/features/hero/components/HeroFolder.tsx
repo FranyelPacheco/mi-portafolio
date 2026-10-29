@@ -103,7 +103,7 @@ const FICHAS: FolderItem[] = [
       icon={<GooglePlayIcon className="w-3.5 h-3.5 text-[var(--accent)]" />}
       title="Google Play"
       meta={
-        <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] font-bold">
+        <span className="font-pixel text-[10px] px-2 py-0.5 rounded-full bg-[var(--badge-bg)] text-[var(--accent)] border border-[var(--badge-border)] font-bold">
           EN PRODUCCIÓN
         </span>
       }
@@ -112,7 +112,7 @@ const FICHAS: FolderItem[] = [
     <p className="mt-1 text-[11px] text-[#cbd5e1] leading-relaxed">
       Mi cuenta de desarrollador con mis party games: Impostor Royale y Pa&apos; que sufras.
     </p>
-    <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--accent)] text-white text-[11px] font-bold">
+    <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--accent-strong)] text-white text-[11px] font-bold">
       Ver en Google Play <ArrowUpRight className="w-3.5 h-3.5" />
     </div>
   </Sheet>,
@@ -153,8 +153,8 @@ export const HeroFolder = () => {
         >
           <div aria-hidden="true" className="absolute -top-3.5 right-3 rotate-[6deg]">
             <div className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 text-white px-3 py-1 rounded-md shadow-[0_8px_20px_rgba(59,130,246,0.55)] border border-blue-400/50 flex flex-col items-center">
-              <span className="text-[11px] sm:text-xs font-black tracking-tight leading-none whitespace-nowrap">Google Play Store</span>
-              <span className="text-[8px] font-bold tracking-wider uppercase leading-tight mt-0.5 whitespace-nowrap text-blue-100">2 Apps Publicadas</span>
+              <span className="font-pixel text-xs sm:text-sm leading-none whitespace-nowrap">Google Play Store</span>
+              <span className="font-pixel text-[9px] tracking-wider uppercase leading-tight mt-0.5 whitespace-nowrap text-blue-100">2 Apps Publicadas</span>
             </div>
           </div>
 

@@ -9,11 +9,15 @@
   --border-strong: rgba(59, 130, 246, 0.32);
   --text-primary: #FFFFFF;
   --text-secondary: #93C5FD;
-  --text-muted: #64748B;
+  --text-muted: #8190A8;
   --accent: #3B82F6;
-  --accent-hover: #2563EB;
+  --accent-strong: #2563EB;
+  --accent-hover: #1D4ED8;
   --accent-glow: rgba(59, 130, 246, 0.45);
   --accent-contrast: #FFFFFF;
+  --highlight-amber: #F59E0B;
+  --tension-rose: #F43F5E;
+  --font-pixel: "Pixelify Sans", ui-monospace, monospace;
   --aura-gradient: radial-gradient(circle, rgba(59, 130, 246, 0.28) 0%, rgba(29, 78, 216, 0.18) 45%, rgba(6, 8, 14, 0) 70%);
   --badge-bg: rgba(59, 130, 246, 0.12);
   --badge-border: rgba(59, 130, 246, 0.35);
@@ -278,4 +282,10 @@ html.lenis body {
 }
 @media (prefers-reduced-motion: reduce) {
   .ring-spin, .float-y { animation: none; }
+}
+
+/* Acentos retro de la marca: solo stickers, badges y etiquetas junto al personaje */
+.font-pixel {
+  font-family: var(--font-pixel);
+  font-weight: 700;
 }

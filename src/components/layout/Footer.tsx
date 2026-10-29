@@ -31,6 +31,8 @@ const Footer = () => {
           </span>
           <span className="opacity-40">/</span>
           <span className="tabular-nums text-[var(--text-secondary)]">{currentYear}</span>
+          <span className="opacity-40">/</span>
+          <span className="text-[var(--text-secondary)] normal-case">@programadorencamino</span>
         </div>
 
         <div className="flex flex-wrap items-center gap-6">
@@ -51,6 +53,9 @@ const Footer = () => {
           ))}
         </div>
       </div>
+      <p className="max-w-6xl mx-auto px-4 sm:px-6 pb-6 text-xs font-mono text-[var(--text-muted)]">
+        Hoy programamos bien, pero mañana lo haremos mejor.
+      </p>
     </footer>
   );
 };

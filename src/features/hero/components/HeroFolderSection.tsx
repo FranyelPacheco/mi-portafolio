@@ -38,13 +38,13 @@ export const HeroFolderSection = () => {
         </div>
 
         <p className="animate-fade-in-up stagger-4 text-sm sm:text-base text-[#a1a1aa] max-w-xl mt-5 leading-relaxed font-sans font-light">
-          Construyo productos digitales que combinan velocidad de lanzamiento (time-to-market), fluidez a 60 FPS y arquitectura escalable con React Native, Expo, React y TypeScript.
+          Web, apps e IA sin humo. Código real con humor: construyo proyectos reales con React Native, Expo, React y TypeScript, y aprendo en el camino.
         </p>
 
         <div className="animate-fade-in-up stagger-4 flex flex-wrap items-center gap-3 mt-7" style={{ animationDelay: "400ms" }}>
           <a
             href="#proyectos"
-            className="btn-press inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold text-sm shadow-[0_10px_30px_var(--accent-glow)] transition-colors"
+            className="btn-press inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent-strong)] hover:bg-[var(--accent-hover)] text-white font-semibold text-sm shadow-[0_10px_30px_var(--accent-glow)] transition-colors"
           >
             Ver proyectos <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
           </a>
